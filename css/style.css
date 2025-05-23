@@ -1,0 +1,29 @@
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.hero {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  min-height: 60vh;
+}
+
+.card-title {
+  color: #e63946;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+}
+i{
+  padding-right: 10px;
+}
+img{
+  width: 1000px;
+  height: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;   
+}
+
