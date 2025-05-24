@@ -35,4 +35,61 @@ img {
     margin-top: 10px;
   }
 }
+/* Kartlara sabit yükseklik */
+.card.h-100 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Kart görseli sabit boyutta olsun */
+.card-img-top {
+  margin-top: 0;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+  
+}
+
+/* Kart gövdesi alt kısımları dengele */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Kart başlığı uzun olmasın */
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Kart içeriği biraz boşluklu görünsün */
+.card-text {
+  flex-grow: 1;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Mobil görünüm için medya sorgusu */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 160px;
+  }
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
 
