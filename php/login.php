@@ -4,8 +4,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sifre = $_POST["sifre"];
 
   // Örnek öğrenci bilgileri
-  $dogruKullanici = "b2412100001@sakarya.edu.tr";
-  $dogruSifre = "b2412100001";
+  $dogruKullanici = "fatih.tasgin@ogr.sakarya.edu.tr";
+  $dogruSifre = "b241210079";
 
   if ($kullanici == $dogruKullanici && $sifre == $dogruSifre) {
     echo "<h2 style='text-align:center; margin-top: 50px;'>Hoş geldiniz <strong>$sifre</strong>!</h2>";
