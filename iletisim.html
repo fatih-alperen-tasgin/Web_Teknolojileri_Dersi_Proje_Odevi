@@ -81,40 +81,14 @@
       </form>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+      <small>&copy; 2025 Fatih Alperen TAŞĞIN. Tüm hakları saklıdır.</small>
+    </footer>
+    
     <!-- Vue.js -->
     <script src="https://unpkg.com/vue@3"></script>
-    <script>
-      const { createApp } = Vue;
-
-      createApp({
-        data() {
-          return {
-            form: {
-              ad: '',
-              email: '',
-              konu: '',
-              mesaj: ''
-            }
-          };
-        },
-        methods: {
-          gonder() {
-            // Verileri localStorage’a yaz
-            localStorage.setItem('iletisimFormu', JSON.stringify(this.form));
-            // Sayfayı yönlendir
-            window.location.href = "form_sonuc.html";
-          },
-          temizle() {
-            this.form = { ad: '', email: '', konu: '', mesaj: '' };
-          }
-        }
-      }).mount('#app');
-    </script>
-
-        <!-- Footer -->
-      <footer class="bg-dark text-white text-center py-3">
-        <small>&copy; 2025 Fatih Alperen TAŞĞIN. Tüm hakları saklıdır.</small>
-      </footer>
+    <script src="js/iletisim.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
