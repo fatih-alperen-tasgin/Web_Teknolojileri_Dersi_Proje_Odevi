@@ -5,7 +5,7 @@ function validateForm() {
     alert("Lütfen tüm alanları doldurunuz.");
     return false;
   }
-  const emailPattern = /^[a-z0-9]+@sakarya\.edu\.tr$/i;
+  const emailPattern = /^[a-z0-9]+@ogr.sakarya\.edu\.tr$/i;
   if (!emailPattern.test(email)) {
     alert("Lütfen geçerli bir Sakarya Üniversitesi e-posta adresi giriniz.");
     return false;
