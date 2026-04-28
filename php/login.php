@@ -1,23 +1,37 @@
 <?php
+// login.php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $kullanici = $_POST["kullanici"];
-  $sifre = $_POST["sifre"];
+    // GÜVENLİK: htmlspecialchars ile basit XSS koruması
+    $gelen_kullanici = isset($_POST["kullanici"]) ? htmlspecialchars($_POST["kullanici"]) : "";
+    $gelen_sifre = isset($_POST["sifre"]) ? htmlspecialchars($_POST["sifre"]) : "";
 
-  // Örnek öğrenci bilgileri
-  $dogruKullanici = "fatih.tasgin@ogr.sakarya.edu.tr";
-  $dogruSifre = "b241210079";
+    // Ödevde istenen sabit bilgiler
+    $dogru_kullanici = "b241210079@sakarya.edu.tr";
+    $dogru_sifre = "b241210079";
 
-  if ($kullanici == $dogruKullanici && $sifre == $dogruSifre) {
-    echo "<h2 style='text-align:center; margin-top: 50px;'>Hoş geldiniz <strong>$kullanici</strong>!</h2>";
-  } else {
-    // Başarısız giriş → hata mesajını ekrana yazdır
-    echo "<p style='color:red; text-align:center;'><strong>Kullanıcı adı veya şifre yanlış</p>";
-    echo "<p style='text-align:center;'><a href='http://localhost/Web_Teknolojileri_Dersi_Proje_Odevi/login.html'>Tekrar dene</a></p>";
-    exit();
-  }
+    if ($gelen_kullanici === $dogru_kullanici && $gelen_sifre === $dogru_sifre) {
+        // Başarılı Giriş
+        echo "<div style='text-align:center; margin-top: 50px; font-family: sans-serif;'>";
+        echo "<h2>Hoş geldiniz <strong>" . $dogru_sifre . "</strong></h2>";
+        echo "<p>Giriş başarılı. Ana sayfaya yönlendiriliyorsunuz...</p>";
+        echo "</div>";
+        
+        // ÖNEMLİ: php/ klasöründen bir üst klasöre (../) index.html'e çıkar
+        header("Refresh: 3; url=../index.html");
+        exit();
+    } else {
+        // Hatalı Giriş
+        // GÜVENLİK: Hatalı girişte bir üst klasördeki login.html'e yönlendirir
+        echo "<script>
+                alert('Hatalı kullanıcı adı veya şifre!');
+                window.location.href='../login.html';
+              </script>";
+        exit();
+    }
 } else {
-  // Form POST ile gelmemişse login sayfasına dön, hata mesajı ile
-  header("Location: http://localhost/Web_Teknolojileri_Dersi_Proje_Odevi/login.html?error=Geçersiz istek, lütfen tekrar giriş yapın");
-  exit();
+    // Form dışı erişimde geri gönder
+    header("Location: ../login.html");
+    exit();
 }
 ?>
