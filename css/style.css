@@ -82,6 +82,13 @@ i {
   padding-top: 100px; /* Yazıyı biraz aşağıya kaydırır */
 }
 
+.hero-about-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  max-width: 600px;
+  margin-top: 10px;
+}
+
 /* Şehrim (sehir.html) Sayfasına Özel Ayarlar */
 .hero-city {
   min-height: 70vh;
