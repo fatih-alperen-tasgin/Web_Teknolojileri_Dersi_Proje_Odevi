@@ -1,94 +1,145 @@
-body {
-  font-family: "Segoe UI", Tahoma, sans-serif;
-}
-
-.hero {
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-  min-height: 60vh;
-}
-
-.card-title {
-  color: #e63946;
-}
-
-.btn-warning {
-  background-color: #ffc107;
-  border: none;
-}
-i{
-  padding-right: 10px;
-}
-img {
-  width: 100%;
-  max-width: 1000px;
-  height: 600px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-}
-
-@media (max-width: 600px) {
-  img {
-    max-width: 100%;
-    height: 360px;
-    margin-top: 10px;
-  }
-}
-/* Kartlara sabit yükseklik */
-.card.h-100 {
+/* ==========================================================================
+   1. GENEL AYARLAR & TIPOGRAFI
+   ========================================================================== */
+/* Tüm sayfanın ekran yüksekliğini kaplamasını sağla */
+html, body {
   height: 100%;
+  margin: 0;
+}
+
+/* Body'yi bir dikey Flexbox kutusuna dönüştür */
+body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh; /* En az ekran yüksekliği kadar olsun */
 }
 
-/* Kart görseli sabit boyutta olsun */
-.card-img-top {
-  margin-top: 0;
+/* Ana içeriği (main) esnek yap - Bu, footer'ı aşağı iter */
+main {
+  flex: 1 0 auto; /* Boş alanı doldurur ve içeriği yayar */
+}
+
+/* Genel Resim Ayarı */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Font Awesome ikon boşluğu */
+i {
+  padding-right: 5px;
+}
+
+/* ==========================================================================
+   2. NAVBAR & NAVIGASYON
+   ========================================================================== */
+.navbar-brand i {
+  padding-right: 0;
+}
+
+.nav-link.active {
+  color: #ffc107 !important;
+  font-weight: 600;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #ffc107 !important;
+}
+
+/* ==========================================================================
+   3. HERO SECTION (YENI TASARIM)
+   ========================================================================== */
+
+/* Her iki sayfa için ortak temel ayarlar */
+.hero-section {
+  display: flex;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+/* Hakkında (index.html) Sayfasına Özel Ayarlar */
+.hero-about {
+  min-height: 600px; /* Zoom hissini azaltmak için ideal yükseklik */
+  background-position: center 80% !important; /* Tabelayı kutunun altına getirir */
+  align-items: start; /* Yazıyı yukarı yaslar */
+  display: flex; /* Flexbox kullanarak hizalama yapar */
+  justify-content: center; /* Yazıyı yatayda ortalar */
+  padding-top: 100px; /* Yazıyı biraz aşağıya kaydırır */
+}
+
+/* Şehrim (sehir.html) Sayfasına Özel Ayarlar */
+.hero-city {
+  min-height: 70vh;
+  /* Resim yolunu buraya ekle (CSS dosyasından çağırdığın için ../ kullan) */
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('../img/konya-mevlana_muzesi.jpg') !important;
+  background-position: center center !important;
+  align-items: center;
+}
+
+/* ==========================================================================
+   4. MODERN KARTLAR (GRID)
+   ========================================================================== */
+.modern-card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.modern-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.modern-card .card-img-top {
   height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid #ddd;
-  
+  border-bottom: 1px solid #eee;
 }
 
-/* Kart gövdesi alt kısımları dengele */
-.card-body {
+.modern-card .card-body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* Kart başlığı uzun olmasın */
-.card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+/* ==========================================================================
+   5. DETAY SECTIONLARI & ICERIK
+   ========================================================================== */
+section {
+  padding: 60px 0;
+  border-top: 1px solid #eee;
 }
 
-/* Kart içeriği biraz boşluklu görünsün */
-.card-text {
-  flex-grow: 1;
-  margin-top: 10px;
-  margin-bottom: 10px;
+h3 {
+  margin-bottom: 20px;
+  color: #333;
 }
 
-/* Mobil görünüm için medya sorgusu */
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
+/* Footer'ın her zaman en altta kalmasını garantile */
+footer {
+  flex-shrink: 0; /* İçerik az olsa bile footer yukarı çıkmaz */
+  background-color: #212529;
+  color: white;
+  padding: 20px 0;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE (MOBIL) AYARLAR
+   ========================================================================== */
 @media (max-width: 768px) {
-  .card-img-top {
+  .hero-section {
+    height: 50vh;
+  }
+
+  .modern-card .card-img-top {
     height: 160px;
   }
-}
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-footer {
-  margin-top: auto;
 }
