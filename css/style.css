@@ -2,6 +2,10 @@
    1. GENEL AYARLAR & TIPOGRAFI
    ========================================================================== */
 /* Tüm sayfanın ekran yüksekliğini kaplamasını sağla */
+:root {
+  --warning-color: #ffc107;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -17,6 +21,13 @@ body {
 /* Ana içeriği (main) esnek yap - Bu, footer'ı aşağı iter */
 main {
   flex: 1 0 auto; /* Boş alanı doldurur ve içeriği yayar */
+}
+
+/* main kullanılmayan sayfalarda da footer'ı aşağı it */
+body > .container,
+body > #app {
+  flex: 1 0 auto;
+  width: 100%;
 }
 
 /* Genel Resim Ayarı */
@@ -38,12 +49,12 @@ i {
 }
 
 .nav-link.active {
-  color: #ffc107 !important;
+  color: var(--warning-color);
   font-weight: 600;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #ffc107 !important;
+  color: var(--warning-color);
 }
 
 /* ==========================================================================
@@ -53,8 +64,8 @@ i {
 /* Her iki sayfa için ortak temel ayarlar */
 .hero-section {
   display: flex;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
   color: white;
   text-align: center;
@@ -63,7 +74,8 @@ i {
 /* Hakkında (index.html) Sayfasına Özel Ayarlar */
 .hero-about {
   min-height: 600px; /* Zoom hissini azaltmak için ideal yükseklik */
-  background-position: center 80% !important; /* Tabelayı kutunun altına getirir */
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('../img/fakulte4.jpg');
+  background-position: center 80%; /* Tabelayı kutunun altına getirir */
   align-items: start; /* Yazıyı yukarı yaslar */
   display: flex; /* Flexbox kullanarak hizalama yapar */
   justify-content: center; /* Yazıyı yatayda ortalar */
@@ -73,9 +85,8 @@ i {
 /* Şehrim (sehir.html) Sayfasına Özel Ayarlar */
 .hero-city {
   min-height: 70vh;
-  /* Resim yolunu buraya ekle (CSS dosyasından çağırdığın için ../ kullan) */
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('../img/konya-mevlana_muzesi.jpg') !important;
-  background-position: center center !important;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('../img/konya-mevlana_muzesi.jpg');
+  background-position: center center;
   align-items: center;
 }
 
@@ -136,7 +147,17 @@ footer {
    ========================================================================== */
 @media (max-width: 768px) {
   .hero-section {
-    height: 50vh;
+    min-height: 50vh;
+  }
+
+  .hero-about {
+    min-height: 50vh;
+    padding-top: 60px;
+    background-position: center center;
+  }
+
+  .hero-city {
+    min-height: 50vh;
   }
 
   .modern-card .card-img-top {

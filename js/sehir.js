@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Tüm '#' ile başlayan linkleri seç (Sayfa içi navigasyon)
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  const navbarHeight = document.querySelector(".navbar").offsetHeight;
+  const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 0;
 
   anchorLinks.forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
